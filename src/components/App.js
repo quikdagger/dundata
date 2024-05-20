@@ -1,13 +1,19 @@
 import React from 'react';
-import Header from './Header';
-import '../styles/App.css';
+import { Provider } from 'react-redux';
+import store from '../redux/store';
+import MainMenu from './MainMenu';
+import CharacterManagement from './CharacterManagement';
+import GameMap from './GameMap';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <h1>Welcome to Dungeons and Data</h1>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <MainMenu />
+        <CharacterManagement />
+        <GameMap />
+      </div>
+    </Provider>
   );
 }
 
