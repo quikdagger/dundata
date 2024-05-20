@@ -6,8 +6,8 @@ import { getAbilityModifiers } from '../utils/modifiers';
 
 function CharacterCreation() {
   const [name, setName] = useState('');
-  const [characterClass, setCharacterClass] = useState('Dwarf'); // Default to Dwarf for now
-  const [race, setRace] = useState('Dwarf'); // Default to Dwarf for now
+  const [characterClass, setCharacterClass] = useState('Elf'); // Default to Elf for now
+  const [race, setRace] = useState('Elf'); // Default to Elf for now
   const [alignment, setAlignment] = useState('Law');
   const [abilityScores, setAbilityScores] = useState(rollAbilityScores());
   const [createdCharacter, setCreatedCharacter] = useState(null);

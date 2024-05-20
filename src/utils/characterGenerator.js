@@ -4,17 +4,17 @@ import { getAbilityModifiers } from './modifiers';
 
 export const createCharacter = (name, characterClass, race, alignment, abilityScores) => {
   const modifiers = getAbilityModifiers(abilityScores);
-  const hitPoints = Math.max(rollDie(8) + modifiers.Constitution, 1); // Dwarf uses 1d8 for hit points
-  const thac0 = 19; // Default starting THAC0 for dwarf
+  const hitPoints = Math.max(rollDie(6) + modifiers.Constitution, 1); // Elf uses 1d6 for hit points
+  const thac0 = 19; // Default starting THAC0 for elf
   const savingThrows = {
-    death: 8,
-    wands: 9,
-    paralysis: 10,
-    breath: 13,
-    spells: 12
+    death: 12,
+    wands: 13,
+    paralysis: 13,
+    breath: 15,
+    spells: 15
   };
 
-  const languages = ['Common', alignment, 'Dwarvish', 'Gnomish', 'Goblin', 'Kobold'];
+  const languages = ['Common', alignment, 'Elvish', 'Gnoll', 'Hobgoblin', 'Orcish'];
 
   return {
     name,
@@ -29,7 +29,7 @@ export const createCharacter = (name, characterClass, race, alignment, abilitySc
     armorClass: 9 + modifiers.Dexterity, // Default unarmored AC
     thac0,
     savingThrows,
-    movementRate: "60’ (20’)",
+    movementRate: "120’ (40’)",
     languages,
     specialAbilities: gameRules.classes[characterClass].specialAbilities
   };

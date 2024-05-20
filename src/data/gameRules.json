@@ -28,9 +28,17 @@
         "weapons": ["Small", "Normal"],
         "languages": ["Common", "Alignment", "Dwarvish", "Gnomish", "Goblin", "Kobold"],
         "specialAbilities": ["Detect Construction Tricks", "Detect Room Traps", "Infravision", "Listening at Doors"]
+      },
+      "Elf": {
+        "primeRequisite": ["Intelligence", "Strength"],
+        "hitDie": "d6",
+        "armor": ["Any", "Shield"],
+        "weapons": ["Any"],
+        "languages": ["Common", "Alignment", "Elvish", "Gnoll", "Hobgoblin", "Orcish"],
+        "specialAbilities": ["Arcane Magic", "Combat", "Detect Secret Doors", "Immunity to Ghoul Paralysis", "Infravision", "Listening at Doors"]
       }
     },
-    "races": ["Human", "Elf", "Dwarf", "Halfling"],
+    "races": ["Halfling"],
     "alignments": ["Law", "Neutrality", "Chaos"]
   }
   
