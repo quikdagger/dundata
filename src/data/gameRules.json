@@ -1,44 +1,60 @@
 {
-    "abilityScores": ["Strength", "Intelligence", "Wisdom", "Dexterity", "Constitution", "Charisma"],
-    "classes": {
-      "Fighter": {
-        "primeRequisite": ["Strength"],
-        "hitDie": "d10",
-        "armor": ["Light", "Medium", "Heavy"],
-        "weapons": ["All"]
-      },
-      "Cleric": {
-        "primeRequisite": ["Wisdom"],
-        "hitDie": "d6",
-        "armor": ["Any", "Shield"],
-        "weapons": ["Club", "Mace", "Sling", "Staff", "War Hammer"],
-        "languages": ["Common", "Alignment"],
-        "spells": {
-          "1": ["Cure Light Wounds", "Detect Evil", "Detect Magic", "Light", "Protection from Evil", "Purify Food and Water", "Remove Fear", "Resist Cold"],
-          "2": ["Bless", "Find Traps", "Hold Person", "Know Alignment", "Resist Fire", "Silence 15' Radius", "Snake Charm", "Speak with Animals"],
-          "3": ["Continual Light", "Cure Disease", "Growth of Animal", "Locate Object", "Remove Curse", "Striking"],
-          "4": ["Create Water", "Cure Serious Wounds", "Neutralize Poison", "Protection from Evil 10' Radius", "Speak with Plants", "Sticks to Snakes"],
-          "5": ["Commune", "Create Food", "Dispel Evil", "Insect Plague", "Quest", "Raise Dead"]
-        }
-      },
-      "Dwarf": {
-        "primeRequisite": ["Strength"],
-        "hitDie": "d8",
-        "armor": ["Any", "Shield"],
-        "weapons": ["Small", "Normal"],
-        "languages": ["Common", "Alignment", "Dwarvish", "Gnomish", "Goblin", "Kobold"],
-        "specialAbilities": ["Detect Construction Tricks", "Detect Room Traps", "Infravision", "Listening at Doors"]
-      },
-      "Elf": {
-        "primeRequisite": ["Intelligence", "Strength"],
-        "hitDie": "d6",
-        "armor": ["Any", "Shield"],
-        "weapons": ["Any"],
-        "languages": ["Common", "Alignment", "Elvish", "Gnoll", "Hobgoblin", "Orcish"],
-        "specialAbilities": ["Arcane Magic", "Combat", "Detect Secret Doors", "Immunity to Ghoul Paralysis", "Infravision", "Listening at Doors"]
+  "abilityScores": ["Strength", "Intelligence", "Wisdom", "Dexterity", "Constitution", "Charisma"],
+  "classes": {
+    "Fighter": {
+      "primeRequisite": ["Strength"],
+      "hitDie": "d8",
+      "armor": ["Any", "Shield"],
+      "weapons": ["Any"],
+      "languages": ["Common", "Alignment"]
+    },
+    "Cleric": {
+      "primeRequisite": ["Wisdom"],
+      "hitDie": "d6",
+      "armor": ["Any", "Shield"],
+      "weapons": ["Club", "Mace", "Sling", "Staff", "War Hammer"],
+      "languages": ["Common", "Alignment"],
+      "spells": {
+        "1": ["Cure Light Wounds", "Detect Evil", "Detect Magic", "Light", "Protection from Evil", "Purify Food and Water", "Remove Fear", "Resist Cold"],
+        "2": ["Bless", "Find Traps", "Hold Person", "Know Alignment", "Resist Fire", "Silence 15' Radius", "Snake Charm", "Speak with Animals"],
+        "3": ["Continual Light", "Cure Disease", "Growth of Animal", "Locate Object", "Remove Curse", "Striking"],
+        "4": ["Create Water", "Cure Serious Wounds", "Neutralize Poison", "Protection from Evil 10' Radius", "Speak with Plants", "Sticks to Snakes"],
+        "5": ["Commune", "Create Food", "Dispel Evil", "Insect Plague", "Quest", "Raise Dead"]
       }
     },
-    "races": ["Halfling"],
-    "alignments": ["Law", "Neutrality", "Chaos"]
-  }
-  
+    "Dwarf": {
+      "primeRequisite": ["Strength"],
+      "hitDie": "d8",
+      "armor": ["Any", "Shield"],
+      "weapons": ["Small", "Normal"],
+      "languages": ["Common", "Alignment", "Dwarvish", "Gnomish", "Goblin", "Kobold"],
+      "specialAbilities": ["Detect Construction Tricks", "Detect Room Traps", "Infravision", "Listening at Doors"]
+    },
+    "Elf": {
+      "primeRequisite": ["Intelligence", "Strength"],
+      "hitDie": "d6",
+      "armor": ["Any", "Shield"],
+      "weapons": ["Any"],
+      "languages": ["Common", "Alignment", "Elvish", "Gnoll", "Hobgoblin", "Orcish"],
+      "specialAbilities": ["Arcane Magic", "Combat", "Detect Secret Doors", "Immunity to Ghoul Paralysis", "Infravision", "Listening at Doors"]
+    },
+    "Halfling": {
+      "primeRequisite": ["Dexterity", "Strength"],
+      "hitDie": "d6",
+      "armor": ["Any", "Shield"],
+      "weapons": ["Any"],
+      "languages": ["Common", "Alignment", "Halfling"],
+      "specialAbilities": ["Defensive Bonus", "Hiding", "Initiative Bonus", "Listening at Doors", "Saving Throws"]
+    },
+    "Magic-User": {
+      "primeRequisite": ["Intelligence"],
+      "hitDie": "d4",
+      "armor": ["None"],
+      "weapons": ["Dagger"],
+      "languages": ["Common", "Alignment"],
+      "specialAbilities": ["Arcane Magic", "Magical Research"]
+    }
+  },
+  "races": ["Human", "Elf", "Dwarf", "Halfling"],
+  "alignments": ["Law", "Neutrality", "Chaos"]
+}

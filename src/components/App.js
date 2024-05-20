@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import CharacterCreation from './CharacterCreation';
 import CharacterList from './CharacterList';
 
@@ -24,14 +24,10 @@ function App() {
             </li>
           </ul>
         </nav>
-        <Switch>
-          <Route path="/create-character">
-            <CharacterCreation onCreateCharacter={handleCharacterCreation} />
-          </Route>
-          <Route path="/">
-            <CharacterList characters={characters} />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/create-character" element={<CharacterCreation onCreateCharacter={handleCharacterCreation} />} />
+          <Route path="/" element={<CharacterList characters={characters} />} />
+        </Routes>
       </div>
     </Router>
   );
