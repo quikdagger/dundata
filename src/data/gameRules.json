@@ -1,0 +1,31 @@
+{
+    "abilityScores": ["Strength", "Intelligence", "Wisdom", "Dexterity", "Constitution", "Charisma"],
+    "classes": {
+      "Fighter": {
+        "primeRequisite": ["Strength"],
+        "hitDie": "d10",
+        "armor": ["Light", "Medium", "Heavy"],
+        "weapons": ["All"]
+      },
+      "Cleric": {
+        "primeRequisite": ["Wisdom"],
+        "hitDie": "d8",
+        "armor": ["Light", "Medium"],
+        "weapons": ["Blunt"]
+      },
+      "MagicUser": {
+        "primeRequisite": ["Intelligence"],
+        "hitDie": "d6",
+        "armor": ["None"],
+        "weapons": ["Daggers"]
+      }
+    },
+    "races": ["Human", "Elf", "Dwarf", "Halfling"],
+    "alignments": ["Law", "Neutrality", "Chaos"],
+    "startingHitPoints": {
+      "Fighter": 10,
+      "Cleric": 8,
+      "MagicUser": 6
+    }
+  }
+  

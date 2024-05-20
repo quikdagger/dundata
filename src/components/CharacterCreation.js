@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
+import { createCharacter } from '../utils/characterGenerator';
+import gameRules from '../data/gameRules.json';
+import { rollAbilityScores } from '../utils/diceRoller';
+import { getAbilityModifiers } from '../utils/modifiers';
 
 function CharacterCreation() {
   const [name, setName] = useState('');
   const [characterClass, setCharacterClass] = useState('Fighter');
-  const [stats, setStats] = useState({
-    strength: 10,
-    intelligence: 10,
-    wisdon: 10,
-    dexterity: 10,
-    constitution: 10,
-    charisma: 10,
-  });
+  const [race, setRace] = useState('Human');
+  const [alignment, setAlignment] = useState('Law');
+  const [abilityScores, setAbilityScores] = useState(rollAbilityScores());
+  const [createdCharacter, setCreatedCharacter] = useState(null);
 
   const handleCreateCharacter = () => {
-    // Logic to create and save the character
+    const newCharacter = createCharacter(name, characterClass, race, alignment, abilityScores);
+    setCreatedCharacter(newCharacter);
   };
+
+  const handleAdjustScores = (primeReq) => {
+    const updatedScores = { ...abilityScores };
+    // Logic to adjust scores, ensuring no score goes below 9
+    setAbilityScores(updatedScores);
+  };
+
+  const abilityModifiers = getAbilityModifiers(abilityScores);
 
   return (
     <div>
@@ -26,17 +35,46 @@ function CharacterCreation() {
       <label>
         Class:
         <select value={characterClass} onChange={(e) => setCharacterClass(e.target.value)}>
-          <option value="Fighter">Fighter</option>
-          <option value="Cleric">Cleric</option>
-          <option value="Magic-user">Magic-user</option>
-          <option value="Thief">Thief</option>
-          <option value="Elf">Elf</option>
-          <option value="Dwarf">Dwarf</option>
-          <option value="Halfling">Halfling</option>
+          {Object.keys(gameRules.classes).map(cls => (
+            <option key={cls} value={cls}>{cls}</option>
+          ))}
         </select>
       </label>
-      {/* Add more stat inputs as needed */}
+      <label>
+        Race:
+        <select value={race} onChange={(e) => setRace(e.target.value)}>
+          {gameRules.races.map(r => (
+            <option key={r} value={r}>{r}</option>
+          ))}
+        </select>
+      </label>
+      <label>
+        Alignment:
+        <select value={alignment} onChange={(e) => setAlignment(e.target.value)}>
+          {gameRules.alignments.map(align => (
+            <option key={align} value={align}>{align}</option>
+          ))}
+        </select>
+      </label>
+
+      <div>
+        <h3>Ability Scores</h3>
+        {Object.keys(abilityScores).map(score => (
+          <div key={score}>
+            <label>{score}: {abilityScores[score]} (Modifier: {abilityModifiers[score]})</label>
+          </div>
+        ))}
+        {/* Add controls for adjusting prime requisite scores */}
+      </div>
+
       <button onClick={handleCreateCharacter}>Create Character</button>
+
+      {createdCharacter && (
+        <div>
+          <h3>Character Created:</h3>
+          <pre>{JSON.stringify(createdCharacter, null, 2)}</pre>
+        </div>
+      )}
     </div>
   );
 }
