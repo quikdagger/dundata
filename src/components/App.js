@@ -1,19 +1,39 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from '../redux/store';
-import MainMenu from './MainMenu';
-import CharacterManagement from './CharacterManagement';
-import GameMap from './GameMap';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import CharacterCreation from './CharacterCreation';
+import CharacterList from './CharacterList';
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+
+  const handleCharacterCreation = (newCharacter) => {
+    setCharacters([...characters, newCharacter]);
+  };
+
   return (
-    <Provider store={store}>
+    <Router>
       <div className="App">
-        <MainMenu />
-        <CharacterManagement />
-        <GameMap />
+        <h1>Dungeons and Data</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/create-character">Create Character</Link>
+            </li>
+            <li>
+              <Link to="/">Character List</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/create-character">
+            <CharacterCreation onCreateCharacter={handleCharacterCreation} />
+          </Route>
+          <Route path="/">
+            <CharacterList characters={characters} />
+          </Route>
+        </Switch>
       </div>
-    </Provider>
+    </Router>
   );
 }
 

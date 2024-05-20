@@ -4,10 +4,10 @@ import gameRules from '../data/gameRules.json';
 import { rollAbilityScores } from '../utils/diceRoller';
 import { getAbilityModifiers } from '../utils/modifiers';
 
-function CharacterCreation() {
+function CharacterCreation({ onCreateCharacter }) {
   const [name, setName] = useState('');
-  const [characterClass, setCharacterClass] = useState('Elf'); // Default to Elf for now
-  const [race, setRace] = useState('Elf'); // Default to Elf for now
+  const [characterClass, setCharacterClass] = useState('Cleric'); // Default to Cleric for now
+  const [race, setRace] = useState('Human'); // Default to Human for now
   const [alignment, setAlignment] = useState('Law');
   const [abilityScores, setAbilityScores] = useState(rollAbilityScores());
   const [createdCharacter, setCreatedCharacter] = useState(null);
@@ -15,6 +15,7 @@ function CharacterCreation() {
   const handleCreateCharacter = () => {
     const newCharacter = createCharacter(name, characterClass, race, alignment, abilityScores);
     setCreatedCharacter(newCharacter);
+    onCreateCharacter(newCharacter);
   };
 
   const abilityModifiers = getAbilityModifiers(abilityScores);
@@ -58,7 +59,6 @@ function CharacterCreation() {
             <label>{score}: {abilityScores[score]} (Modifier: {abilityModifiers[score]})</label>
           </div>
         ))}
-        {/* Add controls for adjusting prime requisite scores */}
       </div>
 
       <button onClick={handleCreateCharacter}>Create Character</button>
