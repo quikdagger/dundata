@@ -6,7 +6,7 @@ import { getAbilityModifiers } from '../utils/modifiers';
 
 function CharacterCreation() {
   const [name, setName] = useState('');
-  const [characterClass, setCharacterClass] = useState('Fighter');
+  const [characterClass, setCharacterClass] = useState('Cleric'); // Default to Cleric for now
   const [race, setRace] = useState('Human');
   const [alignment, setAlignment] = useState('Law');
   const [abilityScores, setAbilityScores] = useState(rollAbilityScores());
@@ -15,12 +15,6 @@ function CharacterCreation() {
   const handleCreateCharacter = () => {
     const newCharacter = createCharacter(name, characterClass, race, alignment, abilityScores);
     setCreatedCharacter(newCharacter);
-  };
-
-  const handleAdjustScores = (primeReq) => {
-    const updatedScores = { ...abilityScores };
-    // Logic to adjust scores, ensuring no score goes below 9
-    setAbilityScores(updatedScores);
   };
 
   const abilityModifiers = getAbilityModifiers(abilityScores);

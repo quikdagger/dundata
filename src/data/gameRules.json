@@ -9,23 +9,20 @@
       },
       "Cleric": {
         "primeRequisite": ["Wisdom"],
-        "hitDie": "d8",
-        "armor": ["Light", "Medium"],
-        "weapons": ["Blunt"]
-      },
-      "MagicUser": {
-        "primeRequisite": ["Intelligence"],
         "hitDie": "d6",
-        "armor": ["None"],
-        "weapons": ["Daggers"]
+        "armor": ["Any", "Shield"],
+        "weapons": ["Club", "Mace", "Sling", "Staff", "War Hammer"],
+        "languages": ["Common", "Alignment"],
+        "spells": {
+          "1": ["Cure Light Wounds", "Detect Evil", "Detect Magic", "Light", "Protection from Evil", "Purify Food and Water", "Remove Fear", "Resist Cold"],
+          "2": ["Bless", "Find Traps", "Hold Person", "Know Alignment", "Resist Fire", "Silence 15' Radius", "Snake Charm", "Speak with Animals"],
+          "3": ["Continual Light", "Cure Disease", "Growth of Animal", "Locate Object", "Remove Curse", "Striking"],
+          "4": ["Create Water", "Cure Serious Wounds", "Neutralize Poison", "Protection from Evil 10' Radius", "Speak with Plants", "Sticks to Snakes"],
+          "5": ["Commune", "Create Food", "Dispel Evil", "Insect Plague", "Quest", "Raise Dead"]
+        }
       }
     },
     "races": ["Human", "Elf", "Dwarf", "Halfling"],
-    "alignments": ["Law", "Neutrality", "Chaos"],
-    "startingHitPoints": {
-      "Fighter": 10,
-      "Cleric": 8,
-      "MagicUser": 6
-    }
+    "alignments": ["Law", "Neutrality", "Chaos"]
   }
   
