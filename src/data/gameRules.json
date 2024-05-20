@@ -20,6 +20,14 @@
           "4": ["Create Water", "Cure Serious Wounds", "Neutralize Poison", "Protection from Evil 10' Radius", "Speak with Plants", "Sticks to Snakes"],
           "5": ["Commune", "Create Food", "Dispel Evil", "Insect Plague", "Quest", "Raise Dead"]
         }
+      },
+      "Dwarf": {
+        "primeRequisite": ["Strength"],
+        "hitDie": "d8",
+        "armor": ["Any", "Shield"],
+        "weapons": ["Small", "Normal"],
+        "languages": ["Common", "Alignment", "Dwarvish", "Gnomish", "Goblin", "Kobold"],
+        "specialAbilities": ["Detect Construction Tricks", "Detect Room Traps", "Infravision", "Listening at Doors"]
       }
     },
     "races": ["Human", "Elf", "Dwarf", "Halfling"],

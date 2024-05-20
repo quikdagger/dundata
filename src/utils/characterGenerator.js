@@ -4,25 +4,17 @@ import { getAbilityModifiers } from './modifiers';
 
 export const createCharacter = (name, characterClass, race, alignment, abilityScores) => {
   const modifiers = getAbilityModifiers(abilityScores);
-  const hitPoints = Math.max(rollDie(6) + modifiers.Constitution, 1); // Cleric uses 1d6 for hit points
-  const thac0 = 19; // Default starting THAC0 for cleric
+  const hitPoints = Math.max(rollDie(8) + modifiers.Constitution, 1); // Dwarf uses 1d8 for hit points
+  const thac0 = 19; // Default starting THAC0 for dwarf
   const savingThrows = {
-    death: 11,
-    wands: 12,
-    paralysis: 14,
-    breath: 16,
-    spells: 15
+    death: 8,
+    wands: 9,
+    paralysis: 10,
+    breath: 13,
+    spells: 12
   };
 
-  const languages = ['Common', alignment];
-
-  if (abilityScores.Intelligence >= 13) {
-    const additionalLanguages = ['Elvish', 'Dwarvish', 'Orcish', 'Gnomish'];
-    const numAdditionalLanguages = Math.floor((abilityScores.Intelligence - 12) / 2);
-    for (let i = 0; i < numAdditionalLanguages; i++) {
-      languages.push(additionalLanguages[i]);
-    }
-  }
+  const languages = ['Common', alignment, 'Dwarvish', 'Gnomish', 'Goblin', 'Kobold'];
 
   return {
     name,
@@ -37,8 +29,8 @@ export const createCharacter = (name, characterClass, race, alignment, abilitySc
     armorClass: 9 + modifiers.Dexterity, // Default unarmored AC
     thac0,
     savingThrows,
-    movementRate: "120’ (40’)",
+    movementRate: "60’ (20’)",
     languages,
-    spells: gameRules.classes[characterClass].spells
+    specialAbilities: gameRules.classes[characterClass].specialAbilities
   };
 };
